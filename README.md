@@ -7,3 +7,5 @@ the world. The library can be viewed by following this link: https://github.com/
 
 In order to play the game you need to have this external library added to your project and then run the java program with the
 'StartGame' class being the main class and the and the method 'main' being the main method.
+
+When playing the game, simply click on the column that you would like to place your disk in.
