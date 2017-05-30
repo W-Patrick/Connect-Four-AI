@@ -507,22 +507,7 @@ class Computer {
         this.game.currentFallingDisk.initializePosition(this.game.targetCell); 
         this.game.canClick = false;
     }
-    
-    // gets the score that the player or computer would receive 
-    // if they placed their disk in the passed in target cell
-    int getScore(Cell targetCell, boolean isPc) {
-        targetCell.occupied = true;
-        targetCell.currentDisk = new Disk(!isPc);
-        ArrayList<Integer> howMany = new ArrayList<Integer>();
-        howMany.add(this.game.lookVertical(targetCell));
-        howMany.add(this.game.lookHorizontal(targetCell));
-        howMany.add(this.game.lookDiagonalLeft(targetCell));
-        howMany.add(this.game.lookDiagonalRight(targetCell));
-        int total = this.utils.max(howMany);
-        int score = this.evaluateOutcome(isPc, total);
-        return score;
-    }
-    
+   
     // evaluate all possible scenarios by traversing the tree until depth
     // is zero and return a list of scenarios (which are integer values)
     ArrayList<Integer> evaluateScenarios(int depth, boolean isPlayer) {
