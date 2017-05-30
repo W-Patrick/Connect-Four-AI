@@ -485,7 +485,7 @@ class Computer {
     
     // take the number of pieces in a row that was found and evaluate the 
     // the score for that collection of moves
-    int evaluateOutcome(boolean isComp, int maxValue) {
+    int evaluateOutcome(boolean isPlayer, int maxValue) {
         int result;
         if (maxValue >= 4) {
             result = 1000;
@@ -493,7 +493,7 @@ class Computer {
         else {
             result = 0;
         }
-        if (!isComp)
+        if (isPlayer)
             result = result * -1;
     
         return result;
@@ -523,7 +523,7 @@ class Computer {
                 howMany.add(this.game.lookDiagonalLeft(targetCell));
                 howMany.add(this.game.lookDiagonalRight(targetCell));
                 int total = this.utils.max(howMany);
-                int score = this.evaluateOutcome(!isPlayer, total);
+                int score = this.evaluateOutcome(isPlayer, total);
                 if ((score == 1000 && !isPlayer) || (score == -1000 && isPlayer) || (depth == 0 && isPlayer))
                     scenarios.add(score);
                 else {
